@@ -28,6 +28,15 @@ public class MainActivity extends ActionBarActivity {
 
 
         Button initiativeButton = (Button) findViewById(R.id.initiativeButton);
+        initiativeButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                // Launching News Feed Screen
+                Intent i = new Intent(getApplicationContext(), InitiativeActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 

@@ -5,11 +5,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="2S App"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="2S App" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +19,10 @@
         <activity
             android:name=".AnamolyActivity"
             android:label="@string/title_activity_anamoly" >
+        </activity>
+        <activity
+            android:name=".InitiativeActivity"
+            android:label="@string/title_activity_initiative" >
         </activity>
     </application>
 
