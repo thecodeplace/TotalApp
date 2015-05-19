@@ -1,17 +1,21 @@
 package com.total.thecodeplace.totalapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +50,10 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
 
     TextView textImagePath;
 
+    String[] GoldenRules = {"High-Risk Situations", "Traffic", "Body Mechanics and Tools",
+            "Protective Equipment", "Work Permits", "Lifting Operations", "Powered Systems","Confined Spaces","Excavation Work","Work at Height"
+    ,"Change Management","Simultaneous Operations or Co-Activities"};
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -77,30 +85,9 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
 
         // Spinner element
         spinnerGoldenRules = (Spinner) findViewById(R.id.spinnerGoldenRules);
+        spinnerGoldenRules.setAdapter(new MyCustomAdapter(AnamolyActivity.this, R.layout.row, GoldenRules));
         // Spinner click listener
         spinnerGoldenRules.setOnItemSelectedListener(this);
-        // Spinner Drop down elements
-        List <String> goldenRules = new ArrayList <java.lang.String>();
-        goldenRules.add("High-Risk Situations");
-        goldenRules.add("Traffic");
-        goldenRules.add("Body Mechanics and Tools");
-        goldenRules.add("Protective Equipment");
-        goldenRules.add("Work Permits");
-        goldenRules.add("Lifting Operations");
-        goldenRules.add("Powered Systems");
-        goldenRules.add("Confined Spaces");
-        goldenRules.add("Excavation Work");
-        goldenRules.add("Work at Height");
-        goldenRules.add("Change Management");
-        goldenRules.add("Simultaneous Operations or Co-Activities");
-
-        // Creating adapter for spinner
-        ArrayAdapter <String> dataAdapterRules = new ArrayAdapter <java.lang.String> (this, android.R.layout.simple_spinner_item, goldenRules);
-        // Drop down layout style - list view with radio button
-        dataAdapterRules.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinnerGoldenRules.setAdapter(dataAdapterRules);
-
 
         buttonSend.setOnClickListener(new OnClickListener()
 
@@ -237,6 +224,43 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
         }
     }
 
+    public class MyCustomAdapter extends ArrayAdapter<String> {
+
+        public MyCustomAdapter(Context context, int textViewResourceId,
+                               String[] objects) {
+            super(context, textViewResourceId, objects);
+            // TODO Auto-generated constructor stub
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+            // TODO Auto-generated method stub
+            return getCustomView(position, convertView, parent);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // TODO Auto-generated method stub
+            return getCustomView(position, convertView, parent);
+        }
+
+        public View getCustomView(int position, View convertView, ViewGroup parent) {
+            // TODO Auto-generated method stub
+            //return super.getView(position, convertView, parent);
+
+            LayoutInflater inflater=getLayoutInflater();
+            View row=inflater.inflate(R.layout.row, parent, false);
+            TextView label=(TextView)row.findViewById(R.id.weekofday);
+            label.setText(GoldenRules[position]);
+
+            ImageView icon=(ImageView)row.findViewById(R.id.icon);
+            icon.setImageResource(R.mipmap.icon);
+
+
+            return row;
+        }
+    }
 
 
 
