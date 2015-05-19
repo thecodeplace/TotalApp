@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">TotalApp</string>
+    <string name="app_name">2S App</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_anamoly">AnamolyActivity</string>
     <string name="title_activity_initiative">InitiativeActivity</string>
+    <string name="spinner_title">Select Category</string>
+    <string name="spinner_golden_rules">Select Golden Rule</string>
+
 </resources>
