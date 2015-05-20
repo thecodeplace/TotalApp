@@ -255,7 +255,34 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
             label.setText(GoldenRules[position]);
 
             ImageView icon=(ImageView)row.findViewById(R.id.icon);
-            icon.setImageResource(R.mipmap.icon);
+
+            switch(GoldenRules[position]){
+                case "High-Risk Situations" : icon.setImageResource(R.drawable.one);
+                                              break;
+                case "Traffic"   : icon.setImageResource(R.drawable.two);
+                                   break;
+                case "Body Mechanics and Tools" : icon.setImageResource(R.drawable.three);
+                    break;
+                case "Protective Equipment" :icon.setImageResource(R.drawable.four);
+                    break;
+                case "Work Permits" :icon.setImageResource(R.drawable.five);
+                    break;
+                case "Lifting Operations" :icon.setImageResource(R.drawable.six);
+                    break;
+                case "Powered Systems" :icon.setImageResource(R.drawable.seven);
+                    break;
+                case "Confined Spaces" :icon.setImageResource(R.drawable.eight);
+                    break;
+                case "Excavation Work" :    icon.setImageResource(R.drawable.nine);
+                    break;
+                case "Work at Height" : icon.setImageResource(R.drawable.ten);
+                    break;
+                case "Change Management" :icon.setImageResource(R.drawable.eleven);
+                    break;
+                case "Simultaneous Operations or Co-Activities" :icon.setImageResource(R.drawable.twelve);
+                    break;
+
+            }
 
 
             return row;
