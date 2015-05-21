@@ -12,5 +12,6 @@
     <string name="buttonSend">Send Report</string>
     <string name="ImmediateAction">ImmediateAction</string>
     <string name="title_activity_anamoly_activity2">AnamolyActivity2</string>
+    <color name="yellow">#ffd503</color>
 
 </resources>
