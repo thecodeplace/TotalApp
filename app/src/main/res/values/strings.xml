@@ -7,5 +7,10 @@
     <string name="title_activity_initiative">InitiativeActivity</string>
     <string name="spinner_title">Select Category</string>
     <string name="spinner_golden_rules">Select Golden Rule</string>
+    <string name="buttonAttach">Attach Images</string>
+    <string name="TakePicture">Take Picture</string>
+    <string name="buttonSend">Send Report</string>
+    <string name="ImmediateAction">ImmediateAction</string>
+    <string name="title_activity_anamoly_activity2">AnamolyActivity2</string>
 
 </resources>

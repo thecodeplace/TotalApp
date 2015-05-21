@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.total.thecodeplace.totalapp" >
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -17,12 +19,10 @@
         <!-- Splash screen -->
 
         <activity
-            android:name="com.total.thecodeplace.totalapp.splashscreen"
+            android:name=".splashscreen"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:noHistory="true" >
-
-
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,14 +30,11 @@
             </intent-filter>
         </activity>
 
-
         <!-- Main activity -->
         <activity
-            android:name="com.total.thecodeplace.totalapp.MainActivity"
-
+            android:name=".MainActivity"
             android:label="@string/app_name" >
         </activity>
-
         <activity
             android:name=".AnamolyActivity"
             android:label="@string/title_activity_anamoly" >
@@ -46,7 +43,10 @@
             android:name=".InitiativeActivity"
             android:label="@string/title_activity_initiative" >
         </activity>
-
+        <activity
+            android:name=".AnamolyActivity2"
+            android:label="@string/title_activity_anamoly_activity2" >
+        </activity>
     </application>
 
 </manifest>

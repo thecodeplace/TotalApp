@@ -35,6 +35,7 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
     Button buttonSend;
     Button buttonAttach;
     Button buttonTakePic;
+    Button 
     EditText txtSubject;
     EditText txtMessage;
     EditText txtPath;
@@ -68,7 +69,6 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
         txtSubject = (EditText) findViewById(R.id.editTextSubject);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
         txtReporter = (EditText) findViewById(R.id.editTextReporter);
-        txtPath = (EditText) findViewById(R.id.editTextPath);
         txtImmediateAction = (EditText) findViewById(R.id.editImmediateAction);
         final File root   = Environment.getExternalStorageDirectory();
         final File dir = new File(root.getAbsolutePath() + "/PersonData");

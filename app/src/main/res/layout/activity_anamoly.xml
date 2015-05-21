@@ -1,120 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.total.thecodeplace.totalapp.AnamolyActivity">
 
-        android:id="@+id/linearLayout1"
-         >
 
-        <ScrollView
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <!-- Text Label -->
+
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-
-                <!-- Text Label -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent">
-
-                    <TextView
-                        android:layout_width="194dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dip"
-                        android:text="Location:"
-                        android:layout_marginBottom="5dp"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        />
-
-                    <Spinner
-                        android:id="@+id/spinnerLocation"
-                        android:layout_width="175dp"
-                        android:layout_height="wrap_content"
-                        android:prompt="@string/spinner_golden_rules"
-                        android:spinnerMode="dropdown" />
-                </LinearLayout>
-
-                <!-- Spinner Element -->
-
-                <!-- Text Label -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"></LinearLayout>
+                android:background="@drawable/layout_bg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:weightSum="1">
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dip"
-                    android:text="Related Golden Rule:"
-                    android:layout_marginBottom="5dp"
+                    android:text="Location"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    />
+                    android:layout_margin="10dp" />
 
-                <!-- Spinner Element -->
                 <Spinner
-                    android:id="@+id/spinnerGoldenRules"
-                    android:layout_width="fill_parent"
+                    android:id="@+id/spinnerLocation"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
-                    android:prompt="@string/spinner_title"
-                    android:spinnerMode="dropdown" />
+                    android:prompt="@string/spinner_golden_rules"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="0.79"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/layout_bg">
 
                 <TextView
                     android:id="@+id/textViewSubject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Site"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp" />
 
                 <EditText
                     android:id="@+id/editTextSubject"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
                 </EditText>
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textViewMessage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/editTextMessage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:inputType="textMultiLine"
-                    android:lines="5" />
-
-                <TextView
-                    android:id="@+id/viewImmediateAction"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ImmediateAction"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-                <EditText
-                    android:id="@+id/editImmediateAction"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:inputType="textMultiLine"
-                    android:lines="5" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dp"
+                android:weightSum="1"
+                android:background="@drawable/layout_bg"
+                android:layout_weight="3.13">
 
                 <TextView
                     android:id="@+id/textViewReporter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Reporter"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_margin="10dp" />
 
 
 
@@ -122,41 +105,40 @@
                     android:id="@+id/editTextReporter"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_margin="10dp">
                 </EditText>
-
-                <EditText
-                    android:id="@+id/editTextPath"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    >
-                </EditText>
-
-                <Button
-                        android:id="@+id/buttonAttach"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Attach Images" />
-
-
-                <Button
-                    android:id="@+id/buttonTakePicture"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Take Picture" />
-
-                <Button
-                    android:id="@+id/buttonSend"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Send" />
-
-
-
-                <!-- Content here -->
             </LinearLayout>
-        </ScrollView>
 
 
+
+
+
+
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/LinearLayout02"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/buttonContinue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Continue"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>   <!-- Content here -->
+
+    </ScrollView>
 
 </LinearLayout>
