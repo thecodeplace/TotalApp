@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,8 +34,10 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
 
     Button buttonSend;
     Button buttonAttach;
+    Button buttonTakePic;
     EditText txtSubject;
     EditText txtMessage;
+    EditText txtPath;
     Spinner spinnerLocation;
     Spinner spinnerGoldenRules;
     String spinnerLocationData;
@@ -41,7 +45,11 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
     EditText txtImmediateAction;
     final int RQS_LOADIMAGE = 0;
     Uri imageUri = null;
-
+    Uri photoPath = null;
+    final int TAKE_PICTURE = 1;
+    int takepicture = 0;
+    int attachpicture=0;
+    int i = 0;
 
     String[] GoldenRules = {"High-Risk Situations", "Traffic", "Body Mechanics and Tools",
             "Protective Equipment", "Work Permits", "Lifting Operations", "Powered Systems","Confined Spaces","Excavation Work","Work at Height"
@@ -56,11 +64,17 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
         setContentView(R.layout.activity_anamoly);
         buttonSend = (Button) findViewById(R.id.buttonSend);
         buttonAttach = (Button) findViewById(R.id.buttonAttach);
+        buttonTakePic = (Button) findViewById(R.id.buttonTakePicture);
         txtSubject = (EditText) findViewById(R.id.editTextSubject);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
         txtReporter = (EditText) findViewById(R.id.editTextReporter);
+        txtPath = (EditText) findViewById(R.id.editTextPath);
         txtImmediateAction = (EditText) findViewById(R.id.editImmediateAction);
-
+        final File root   = Environment.getExternalStorageDirectory();
+        final File dir = new File(root.getAbsolutePath() + "/PersonData");
+        if(!dir.exists()) {
+            dir.mkdirs();
+        }
         // Spinner element
         spinnerLocation = (Spinner) findViewById(R.id.spinnerLocation);
         // Spinner click listener
@@ -119,10 +133,8 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
                     String combinedString = columnString + "\n" + dataString;
 
                     File file   = null;
-                    File root   = Environment.getExternalStorageDirectory();
+
                     if (root.canWrite()) {
-                        File dir = new File(root.getAbsolutePath() + "/PersonData");
-                        dir.mkdirs();
                         file = new File(dir, "Data.csv");
                         FileOutputStream out = null;
                         try {
@@ -145,18 +157,31 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
                     Uri u1  =   null;
                     u1  =   Uri.fromFile(file);
 
+                    File bitmapFile = new File(dir+"/Pic.png");
+                    Uri myUri = Uri.fromFile(bitmapFile);
+
                     Intent sendIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
                     sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Person Details");
-                    String toList[] = { "sivakumar_somu@hotmail.com" };
+                    String toList[] = { "vanipriya@thecodeplace.com" };
                     sendIntent.putExtra(Intent.EXTRA_EMAIL, toList);
-                    String ccToList[] = {"daniel.guerra-paez@total.com"};
-                    sendIntent.putExtra(Intent.EXTRA_CC, ccToList);
+                   /* String ccToList[] = {"daniel.guerra-paez@total.com"};
+                    sendIntent.putExtra(Intent.EXTRA_CC, ccToList);*/
                     ArrayList<Uri> uris = new ArrayList<Uri>();
 
-                    uris.add(0,u1);
-                    if(imageUri != null) {
-                        uris.add(1,imageUri);
+
+                    uris.add(i,u1);
+                    i++;
+
+                    if(takepicture==1) {
+                        uris.add(i, myUri);
+                        i++;
                     }
+
+                    if(attachpicture==1)
+                    {
+                        uris.add(i,imageUri);
+                    }
+
 
                     sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
                     sendIntent.setType("message/rfc822");
@@ -181,6 +206,17 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
             }
         });
 
+        buttonTakePic.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File file1 = new File(dir, "Pic.png");
+                photoPath = Uri.fromFile(file1);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoPath);
+                // start camera activity
+                startActivityForResult(intent,TAKE_PICTURE);
+            }
+        });
 
     }
 
@@ -193,10 +229,24 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
             switch (requestCode) {
                 case RQS_LOADIMAGE:
                     imageUri = data.getData();
-                    //textImagePath.setText(imageUri.toString());
+                    attachpicture = 1;
                     break;
 
             }
+
+        }
+
+        if (requestCode == TAKE_PICTURE && resultCode== RESULT_OK && data != null){
+            // get bundle
+            takepicture = 1;
+            Bundle extras = data.getExtras();
+            Log.v("Photo Path",photoPath.toString());
+            photoPath = data.getData();
+            txtPath.setText(photoPath.toString());
+
+            // get bitmap
+            /*bitMap = (Bitmap) extras.get("data");
+            ivThumbnailPhoto.setImageBitmap(bitMap);*/
 
         }
     }

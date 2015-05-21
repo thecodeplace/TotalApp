@@ -1,132 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:id="@+id/linearLayout1"
+         >
+
+        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-
-            <!-- Text Label -->
-            <TextView
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
-                android:text="Location:"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                />
-
-            <!-- Spinner Element -->
-            <Spinner
-                android:id="@+id/spinnerLocation"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:prompt="@string/spinner_golden_rules"
-                android:spinnerMode="dropdown" />
-
-            <!-- Text Label -->
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
-                android:text="Related Golden Rule:"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                />
-
-            <!-- Spinner Element -->
-            <Spinner
-                android:id="@+id/spinnerGoldenRules"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:prompt="@string/spinner_title"
-                android:spinnerMode="dropdown" />
-
-            <TextView
-                android:id="@+id/textViewSubject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Site"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/editTextSubject"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                >
-            </EditText>
-
-            <TextView
-                android:id="@+id/textViewMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/editTextMessage"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:lines="5" />
-
-            <TextView
-                android:id="@+id/viewImmediateAction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ImmediateAction"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-            <EditText
-                android:id="@+id/editImmediateAction"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:lines="5" />
-
-            <TextView
-                android:id="@+id/textViewReporter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reporter"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/editTextReporter"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                >
-            </EditText>
-
-            <Button
-                android:id="@+id/buttonAttach"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Attach Images" />
-
-            <Button
-                android:id="@+id/buttonSend"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Send" />
+                android:orientation="vertical">
 
 
 
-            <!-- Content here -->
-        </LinearLayout>
-    </ScrollView>
+                <!-- Text Label -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="194dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="Location:"
+                        android:layout_marginBottom="5dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        />
+
+                    <Spinner
+                        android:id="@+id/spinnerLocation"
+                        android:layout_width="175dp"
+                        android:layout_height="wrap_content"
+                        android:prompt="@string/spinner_golden_rules"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+
+                <!-- Spinner Element -->
+
+                <!-- Text Label -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"></LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:text="Related Golden Rule:"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    />
+
+                <!-- Spinner Element -->
+                <Spinner
+                    android:id="@+id/spinnerGoldenRules"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/spinner_title"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:id="@+id/textViewSubject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Site"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editTextSubject"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textViewMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editTextMessage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:lines="5" />
+
+                <TextView
+                    android:id="@+id/viewImmediateAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ImmediateAction"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+                <EditText
+                    android:id="@+id/editImmediateAction"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:lines="5" />
+
+                <TextView
+                    android:id="@+id/textViewReporter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reporter"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+
+                <EditText
+                    android:id="@+id/editTextReporter"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editTextPath"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </EditText>
+
+                <Button
+                        android:id="@+id/buttonAttach"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Attach Images" />
+
+
+                <Button
+                    android:id="@+id/buttonTakePicture"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Take Picture" />
+
+                <Button
+                    android:id="@+id/buttonSend"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Send" />
+
+
+
+                <!-- Content here -->
+            </LinearLayout>
+        </ScrollView>
 
 
 
