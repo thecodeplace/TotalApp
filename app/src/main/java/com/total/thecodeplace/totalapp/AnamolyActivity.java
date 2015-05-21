@@ -32,23 +32,16 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
 
     Button buttonSend;
     Button buttonAttach;
-    EditText txtTo;
     EditText txtSubject;
     EditText txtMessage;
     Spinner spinnerLocation;
     Spinner spinnerGoldenRules;
-    String spinnerLocationData,attachmentFile;
+    String spinnerLocationData;
     EditText txtReporter;
     EditText txtImmediateAction;
-    Uri URI = null;
-    private static final int PICK_FROM_GALLERY = 101;
     final int RQS_LOADIMAGE = 0;
-    final int RQS_SENDEMAIL = 1;
-
     Uri imageUri = null;
-    int columnIndex;
 
-    TextView textImagePath;
 
     String[] GoldenRules = {"High-Risk Situations", "Traffic", "Body Mechanics and Tools",
             "Protective Equipment", "Work Permits", "Lifting Operations", "Powered Systems","Confined Spaces","Excavation Work","Work at Height"
@@ -95,21 +88,13 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
             public void onClick(View v)
 
             {
-                String to = txtTo.getText().toString();
                 String subject = txtSubject.getText().toString();
                 String message = txtMessage.getText().toString();
 
-
-                if (to != null && to.length() > 0 && !isEmailValid(to))
-
+                if (subject != null && subject.length() == 0)
                 {
                     Toast.makeText(getApplicationContext(),
-                            "Entered email ID is not Valid", Toast.LENGTH_SHORT).show();
-                } else if (subject != null && subject.length() == 0)
-
-                {
-                    Toast.makeText(getApplicationContext(),
-                            "You forgot to enter the subject",
+                            "You forgot to enter the site",
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -121,20 +106,16 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
                             Toast.LENGTH_SHORT).show();
                 }
 
-                else if (to != null && subject != null && message != null)
+                else if (subject != null && message != null)
                 {
 
-
-
                     String columnString =   "\"Reporter\",\"Location\",\"Golden Rule\",\"Site\",\"Description\",\"Immediate Action\"";
-
-
                     String reporter = txtReporter.getText().toString();
                     spinnerLocationData = String.valueOf(spinnerLocation.getSelectedItem());
                     String goldenRuleData = String.valueOf(spinnerGoldenRules.getSelectedItem());
                     String immediateAction = txtImmediateAction.getText().toString();
 
-                    String dataString   =   "\"" + reporter +"\",\"" + spinnerLocationData + "\",\"" + goldenRuleData + "\",\"" + to + "\",\"" + message + "\",\""+ immediateAction + "\"";
+                    String dataString   =   "\"" + reporter +"\",\"" + spinnerLocationData + "\",\"" + goldenRuleData + "\",\"" + subject + "\",\"" + message + "\",\""+ immediateAction + "\"";
                     String combinedString = columnString + "\n" + dataString;
 
                     File file   = null;
@@ -177,14 +158,10 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
                         uris.add(1,imageUri);
                     }
 
-                        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-
+                    sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
                     sendIntent.setType("message/rfc822");
                     startActivity(Intent.createChooser(sendIntent,
                             "Choose an Email client :"));
-
-                    //email.putExtra(Intent.EXTRA_TEXT, spinnerLocationData);
-
 
                 }
             }
@@ -216,7 +193,7 @@ public class AnamolyActivity extends ActionBarActivity implements OnItemSelected
             switch (requestCode) {
                 case RQS_LOADIMAGE:
                     imageUri = data.getData();
-                    textImagePath.setText(imageUri.toString());
+                    //textImagePath.setText(imageUri.toString());
                     break;
 
             }
